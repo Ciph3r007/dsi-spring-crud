@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Hmmmm....</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap/bootstrap.css}">
 </head>
 <body>
-<h1>Some table</h1>
+<div class="container-fluid text-center">
+    <h1>Order List</h1>
+    <table class="table w-50 mx-auto ">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="product : ${products}">
+            <tr>
+                <td th:text="${product.getId()}"></td>
+                <td th:text="${product.getName()}"></td>
+                <td th:text="${product.getPrice()}"></td>
+                <td th:text="${product.quantity}"></td>
+                <td>
+                    <button type="button" class="btn btn-secondary btn-sm">Update</button>
+                    <button type="button" class="btn btn-danger btn-sm mx-2">Delete</button>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
