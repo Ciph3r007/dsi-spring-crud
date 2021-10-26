@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.getName()}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap/bootstrap.css}">
+</head>
+<body class="p-4">
+<div class="container-fluid text-center">
+    <div class="card bg-light mx-auto my-lg-5 w-50" style="min-width: 30rem;">
+        <div class="card-header">Product Details</div>
+        <div class="card-body">
+            <h5 class="card-title" th:text="${product.getName()}"></h5>
+            <table class="table card-text">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <th class="w-50" scope="row">ID</th>
+                    <td th:text="${product.getId()}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Price</th>
+                    <td th:text="'$'+${product.getPrice()}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Quantity</th>
+                    <td th:text="${product.quantity}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

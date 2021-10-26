@@ -5,9 +5,9 @@
     <title>Hmmmm....</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap/bootstrap.css}">
 </head>
-<body>
+<body class="p-4">
 <div class="container-fluid text-center">
-    <h1>Order List</h1>
+    <h1>Products in inventory</h1>
     <table class="table w-50 mx-auto ">
         <thead>
         <tr>
@@ -22,11 +22,13 @@
             <tr>
                 <td th:text="${product.getId()}"></td>
                 <td th:text="${product.getName()}"></td>
-                <td th:text="${product.getPrice()}"></td>
+                <td th:text="'$'+${product.getPrice()}"></td>
                 <td th:text="${product.quantity}"></td>
                 <td>
-                    <button type="button" class="btn btn-secondary btn-sm">Update</button>
-                    <button type="button" class="btn btn-danger btn-sm mx-2">Delete</button>
+                    <a role="button" class="btn btn-primary btn-sm"
+                       th:href="@{product/{id}(id=${product.getId()})}">View</a>
+                    <button type="button" class="btn btn-secondary btn-sm mx-2">Update</button>
+                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
         </th:block>
