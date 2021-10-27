@@ -4,8 +4,8 @@ public class Product {
     private static int counter;
     private int id;
     private String name;
-    private int price;
-    public int quantity;
+    private Double price;
+    private Integer quantity;
 
     public int getId() {
         return id;
@@ -15,15 +15,40 @@ public class Product {
         return name;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public Product(String name, int price, int quantity) {
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Product() {
         ++counter;
         this.id = counter;
+    }
+
+    public Product(String name, Double price, Integer quantity) {
+        this();
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
+        this.setQuantity(quantity);
+    }
+
+    @Override
+    public String toString() {
+        return this.name + this.price;
     }
 }

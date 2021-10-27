@@ -6,9 +6,17 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap/bootstrap.css}">
 </head>
 <body class="p-4">
-<div class="container-fluid text-center">
-    <h1>Products in inventory</h1>
-    <table class="table w-50 mx-auto ">
+<div class="container-fluid w-50 mx-auto" style="min-width: 45rem;">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-8"><h2>Products in inventory</h2></div>
+            <div class="col-sm-2">
+                <a role="button" class="btn btn-outline-dark" th:href="@{/add-product}">Add Product<a>
+            </div>
+        </div>
+    </div>
+    <!--    <h1>Products in inventory</h1>-->
+    <table class="table">
         <thead>
         <tr>
             <th scope="col">ID</th>
