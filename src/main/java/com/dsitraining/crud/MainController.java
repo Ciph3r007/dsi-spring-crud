@@ -26,7 +26,7 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/products/{id}")
     public String showProductDetails(@PathVariable int id, Model model) {
         Product product = getProductById(id);
         model.addAttribute("product", product);
@@ -49,6 +49,14 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/products/{id}/delete")
+    public String deleteProduct(@PathVariable int id, Model model) {
+        Product product = getProductById(id);
+        products.remove(product);
+        model.addAttribute("products", products);
+
+        return "index";
+    }
 
     private Product getProductById(int id) {
         for (var product : products) {
