@@ -37,13 +37,30 @@ public class MainController {
     @GetMapping("/add-product")
     public String getCreateProductForm(Model model) {
         model.addAttribute("product", new Product());
-        return "add-product";
+        return "product-form";
     }
 
     @PostMapping("/add-product")
     public String submitCreateProductForm(@ModelAttribute Product product, Model model) {
-        product.setId();
+        product.addId();
         products.add(product);
+        model.addAttribute("products", products);
+
+        return "index";
+    }
+
+    @GetMapping("/products/{id}/update")
+    public String getUpdateProductForm(@PathVariable int id, Model model) {
+        Product product = getProductById(id);
+        model.addAttribute("product", product);
+        return "product-form";
+    }
+
+    @PostMapping("/products/{id}/update")
+    public String submitUpdateProductForm(@PathVariable int id, @ModelAttribute Product product, Model model) {
+        int index = getIndexById(id);
+        product.setId(id);
+        products.set(index, product);
         model.addAttribute("products", products);
 
         return "index";
@@ -56,6 +73,16 @@ public class MainController {
         model.addAttribute("products", products);
 
         return "index";
+    }
+
+    private int getIndexById(int id) {
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getId() == id) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     private Product getProductById(int id) {

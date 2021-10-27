@@ -23,11 +23,8 @@ public class Product {
         return quantity;
     }
 
-    public void setId() {
-        if (id != 0)
-            throw new IllegalStateException("Id already set and can't be changed!");
-        counter++;
-        id = counter;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -51,5 +48,12 @@ public class Product {
         this.name = name;
         this.price = price;
         this.setQuantity(quantity);
+    }
+
+    public void addId() {
+        if (id != 0)
+            throw new IllegalStateException("Id already set and can't be changed!");
+        counter++;
+        id = counter;
     }
 }
