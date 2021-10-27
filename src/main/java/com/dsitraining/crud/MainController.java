@@ -15,9 +15,9 @@ import java.util.List;
 @Controller
 public class MainController {
     List<Product> products = new ArrayList<>(Arrays.asList(
-            new Product("Razer Deathadder Chroma", 59.0, 2),
-            new Product("PlayStation 5", 999.0, 1),
-            new Product("RTX 3090", 1299.0, 5)
+            new Product("Razer Deathadder Chroma", 59, 2),
+            new Product("PlayStation 5", 999, 1),
+            new Product("RTX 3090", 1299, 5)
     ));
 
     @GetMapping("")
@@ -42,6 +42,7 @@ public class MainController {
 
     @PostMapping("/add-product")
     public String submitCreateProductForm(@ModelAttribute Product product, Model model) {
+        product.setId();
         products.add(product);
         model.addAttribute("products", products);
 

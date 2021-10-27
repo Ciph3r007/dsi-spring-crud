@@ -4,7 +4,7 @@ public class Product {
     private static int counter;
     private int id;
     private String name;
-    private Double price;
+    private Integer price;
     private Integer quantity;
 
     public int getId() {
@@ -15,7 +15,7 @@ public class Product {
         return name;
     }
 
-    public Double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
@@ -23,11 +23,18 @@ public class Product {
         return quantity;
     }
 
+    public void setId() {
+        if (id != 0)
+            throw new IllegalStateException("Id already set and can't be changed!");
+        counter++;
+        id = counter;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -36,19 +43,13 @@ public class Product {
     }
 
     public Product() {
-        ++counter;
-        this.id = counter;
     }
 
-    public Product(String name, Double price, Integer quantity) {
-        this();
+    public Product(String name, Integer price, Integer quantity) {
+        ++counter;
+        this.id = counter;
         this.name = name;
         this.price = price;
         this.setQuantity(quantity);
-    }
-
-    @Override
-    public String toString() {
-        return this.name + this.price;
     }
 }
