@@ -1,7 +1,7 @@
 package com.dsitraining.crud.product;
 
+
 public class Product {
-    private static int counter;
     private int id;
     private String name;
     private Integer price;
@@ -43,17 +43,8 @@ public class Product {
     }
 
     public Product(String name, Integer price, Integer quantity) {
-        ++counter;
-        this.id = counter;
         this.name = name;
         this.price = price;
-        this.setQuantity(quantity);
-    }
-
-    public void addId() {
-        if (id != 0)
-            throw new IllegalStateException("Id already set and can't be changed!");
-        counter++;
-        id = counter;
+        this.quantity = quantity;
     }
 }
