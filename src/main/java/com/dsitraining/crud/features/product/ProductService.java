@@ -1,10 +1,8 @@
-package com.dsitraining.crud;
+package com.dsitraining.crud.features.product;
 
-import com.dsitraining.crud.product.Product;
+import com.dsitraining.crud.CrudService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service

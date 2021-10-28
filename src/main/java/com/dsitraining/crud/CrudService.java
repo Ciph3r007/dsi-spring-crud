@@ -1,7 +1,5 @@
 package com.dsitraining.crud;
 
-import com.dsitraining.crud.product.Product;
-
 import java.util.List;
 
 public interface CrudService<T> {

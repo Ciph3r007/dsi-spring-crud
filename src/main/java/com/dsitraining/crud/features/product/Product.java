@@ -1,4 +1,4 @@
-package com.dsitraining.crud.product;
+package com.dsitraining.crud.features.product;
 
 
 public class Product {
