@@ -18,8 +18,6 @@ public class ProductService implements CrudService<Product> {
     }
 
     public void add(Product product) {
-        if (product.getPrice() < 100)
-            return;
         productRepository.add(product);
     }
 
